@@ -1,446 +1,392 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
+    <title>爱我中华 - 中国主题网站</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
-            --white: #ffffff;
+            --primary-red: #c7000a;
+            --secondary-red: #de2910;
+            --gold: #ffd700;
+            --dark-red: #8b0000;
+            --light-gold: #fff9e6;
+            --text-dark: #333;
+            --text-light: #fff;
         }
-
+        
         body {
-            background-color: var(--light);
-            color: var(--text);
+            font-family: 'Noto Sans SC', sans-serif;
             line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
         }
-
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
         header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
+            background: linear-gradient(to right, var(--dark-red), var(--primary-red));
+            color: var(--text-light);
             padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-container {
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
+            font-family: 'Ma Shan Zheng', cursive;
             font-size: 1.8rem;
-            font-weight: 700;
         }
-
+        
         .logo i {
+            color: var(--gold);
             font-size: 2rem;
         }
-
+        
         nav ul {
             display: flex;
             list-style: none;
+            gap: 2rem;
         }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--white);
+        
+        nav a {
+            color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 4px;
             transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            position: relative;
         }
-
-        nav ul li a:hover {
-            color: var(--accent);
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--gold);
         }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
+        
+        /* 英雄区域样式 */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1544984243-ec57ea16fe25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
+            color: var(--text-light);
             text-align: center;
-            color: var(--white);
+            padding: 8rem 2rem;
+            position: relative;
         }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
+        
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: 'Ma Shan Zheng', cursive;
         }
-
+        
         .hero p {
             font-size: 1.3rem;
-            margin-bottom: 2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
-
-        .btn {
+        
+        .cta-button {
             display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
+            background-color: var(--primary-red);
+            color: var(--text-light);
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        .btn:hover {
-            background-color: var(--primary);
+        
+        .cta-button:hover {
+            background-color: var(--gold);
+            color: var(--dark-red);
             transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
-
-        section {
-            padding: 5rem 0;
-        }
-
+        
+        /* 内容区域样式 */
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            margin: 3rem 0 2rem;
+            color: var(--dark-red);
             position: relative;
-            display: inline-block;
+            font-family: 'Ma Shan Zheng', cursive;
         }
-
-        .section-title h2::after {
+        
+        .section-title:after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
+            display: block;
+            width: 100px;
             height: 4px;
-            background-color: var(--accent);
+            background-color: var(--gold);
+            margin: 10px auto;
             border-radius: 2px;
         }
-
-        .section-title p {
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .about-content {
+        
+        .features {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
-
-        .about-img {
+        
+        .feature-card {
+            background-color: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-
-        .stat-item:hover {
+        
+        .feature-card:hover {
             transform: translateY(-10px);
         }
-
-        .stat-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: var(--text);
-        }
-
-        .initiatives {
-            background-color: var(--white);
-        }
-
-        .initiatives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .initiative-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .initiative-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .initiative-img {
+        
+        .feature-img {
             height: 200px;
             overflow: hidden;
         }
-
-        .initiative-img img {
+        
+        .feature-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-
-        .initiative-card:hover .initiative-img img {
-            transform: scale(1.1);
+        
+        .feature-card:hover .feature-img img {
+            transform: scale(1.05);
         }
-
-        .initiative-content {
+        
+        .feature-content {
             padding: 1.5rem;
         }
-
-        .initiative-content h3 {
-            font-size: 1.5rem;
+        
+        .feature-content h3 {
+            color: var(--dark-red);
             margin-bottom: 1rem;
-            color: var(--dark);
+            font-size: 1.5rem;
         }
-
-        .initiative-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+        
+        /* 中国文化展示区 */
+        .culture-showcase {
+            background-color: var(--light-gold);
+            padding: 4rem 0;
+            margin: 3rem 0;
             position: relative;
-            padding-bottom: 10px;
         }
-
-        .footer-column h3::after {
+        
+        .culture-showcase:before {
             content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--dark-red), var(--gold), var(--dark-red));
+        }
+        
+        .culture-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .culture-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .culture-icon {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+        
+        /* 图片画廊 */
+        .gallery {
+            margin: 4rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
+            right: 0;
+            background: linear-gradient(transparent, rgba(199, 0, 10, 0.8));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
         }
-
-        .footer-column p {
-            margin-bottom: 1rem;
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
         }
-
+        
+        /* 引用区域 */
+        .quote-section {
+            background-color: var(--dark-red);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+        }
+        
+        .quote {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .quote-author {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--dark-red);
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            border-left: 4px solid var(--gold);
+            padding-left: 10px;
+        }
+        
         .footer-links {
             list-style: none;
         }
-
+        
         .footer-links li {
             margin-bottom: 0.8rem;
         }
-
-        .footer-links li a {
-            color: var(--light);
+        
+        .footer-links a {
+            color: var(--text-light);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
-
-        .footer-links li a:hover {
-            color: var(--accent);
+        
+        .footer-links a:hover {
+            color: var(--gold);
             padding-left: 5px;
         }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
+        
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
         }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
+        
+        /* 响应式设计 */
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu {
+                display: none;
+                width: 100%;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -449,274 +395,353 @@
                 font-size: 1.1rem;
             }
             
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
-                flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.active {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 2rem;
             }
         }
-
-        /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delayed-1 { animation-delay: 0.3s; opacity: 0; }
+        .delayed-2 { animation-delay: 0.6s; opacity: 0; }
+        .delayed-3 { animation-delay: 0.9s; opacity: 0; }
+        
+        /* 滚动到顶部按钮 */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-red);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- 头部导航 -->
     <header>
-        <div class="container nav-container">
+        <div class="container header-content">
             <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
+                <i class="fas fa-star"></i>
+                <span>爱我中华</span>
             </div>
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="mobile-menu" id="mainNav">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#culture">中国文化</a></li>
+                    <li><a href="#scenery">锦绣山河</a></li>
+                    <li><a href="#achievements">辉煌成就</a></li>
+                    <li><a href="#contact">联系我们</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- 英雄区域 -->
     <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
         <div class="container">
-            <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
+            <h1 class="fade-in">伟大的中国，我们热爱您</h1>
+            <p class="fade-in delayed-1">五千年文明源远流长，十四亿人民同心筑梦。从雄伟的长城到奔腾的黄河，从古老的文化到现代的辉煌，中国正以崭新的姿态屹立于世界东方。</p>
+            <a href="#culture" class="cta-button fade-in delayed-2">探索中国之美</a>
+        </div>
+    </section>
+
+    <!-- 特色区域 -->
+    <section class="container">
+        <h2 class="section-title" id="culture">中国文化瑰宝</h2>
+        <div class="features">
+            <div class="feature-card fade-in">
+                <div class="feature-img">
+                    <img src="https://images.unsplash.com/photo-1545062997-7bd87c6a1c82?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="中国书法">
+                </div>
+                <div class="feature-content">
+                    <h3>传统书法艺术</h3>
+                    <p>中国书法是汉字书写艺术，被誉为无言的诗、无行的舞、无图的画、无声的乐。从甲骨文到楷书，每一种书体都承载着深厚的文化内涵。</p>
+                </div>
             </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
+            
+            <div class="feature-card fade-in delayed-1">
+                <div class="feature-img">
+                    <img src="https://images.unsplash.com/photo-1598498040177-d9bbcc3e2f0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="中国建筑">
                 </div>
-                <div class="about-text">
-                    <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
+                <div class="feature-content">
+                    <h3>古典建筑美学</h3>
+                    <p>从故宫的宏伟到苏州园林的精致，中国古典建筑体现了天人合一的哲学思想。飞檐翘角、雕梁画栋，每一处细节都彰显着匠人精神。</p>
                 </div>
             </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
-                    <p>Trees Planted</p>
+            
+            <div class="feature-card fade-in delayed-2">
+                <div class="feature-img">
+                    <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="中国茶文化">
                 </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Reached</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
+                <div class="feature-content">
+                    <h3>茶道文化传承</h3>
+                    <p>中国是茶的故乡，茶文化源远流长。从采茶、制茶到品茶，每一道工序都蕴含着中国人对自然和生活的理解与尊重。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Initiatives Section -->
-    <section class="initiatives" id="initiatives">
+    <!-- 中国文化展示区 -->
+    <section class="culture-showcase">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
-            </div>
-            <div class="initiatives-grid">
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
+            <h2 class="section-title">中华文化象征</h2>
+            <div class="culture-items">
+                <div class="culture-item fade-in">
+                    <div class="culture-icon">
+                        <i class="fas fa-dragon"></i>
                     </div>
-                    <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
+                    <h3>龙图腾</h3>
+                    <p>龙是中华民族的象征，代表着力量、智慧和祥瑞。中国人自称为"龙的传人"。</p>
                 </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
+                
+                <div class="culture-item fade-in delayed-1">
+                    <div class="culture-icon">
+                        <i class="fas fa-yin-yang"></i>
                     </div>
-                    <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
+                    <h3>阴阳哲学</h3>
+                    <p>阴阳相济，万物和谐。这一古老哲学思想深刻影响着中国人的思维方式和生活态度。</p>
                 </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
+                
+                <div class="culture-item fade-in delayed-2">
+                    <div class="culture-icon">
+                        <i class="fas fa-hands-helping"></i>
                     </div>
-                    <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
-                        <a href="#" class="btn">Learn More</a>
+                    <h3>和谐理念</h3>
+                    <p>"和为贵"的思想深植于中国文化，强调人与人、人与自然、人与社会的和谐共生。</p>
+                </div>
+                
+                <div class="culture-item fade-in delayed-3">
+                    <div class="culture-icon">
+                        <i class="fas fa-fist-raised"></i>
                     </div>
+                    <h3>民族精神</h3>
+                    <p>勤劳勇敢、自强不息的民族精神，激励着一代又一代中国人创造辉煌。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="get-involved">
+    <!-- 图片画廊 -->
+    <section class="container gallery" id="scenery">
+        <h2 class="section-title">锦绣山河</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1512529904539-2034f9e1c8b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="长城">
+                <div class="gallery-overlay">
+                    <h3>万里长城</h3>
+                    <p>世界文化遗产，中华民族的象征</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="故宫">
+                <div class="gallery-overlay">
+                    <h3>北京故宫</h3>
+                    <p>明清皇家宫殿，中国古代建筑精华</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="黄山">
+                <div class="gallery-overlay">
+                    <h3>黄山奇景</h3>
+                    <p>天下第一奇山，中国山水画灵感源泉</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="漓江">
+                <div class="gallery-overlay">
+                    <h3>漓江山水</h3>
+                    <p>桂林山水甲天下，百里画廊美如画</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 引用区域 -->
+    <section class="quote-section" id="achievements">
         <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
+            <blockquote class="quote">
+                "我们伟大的祖国，历史悠久，文化灿烂，山河壮丽，人民勤劳。在中国共产党的领导下，中国正沿着中国特色社会主义道路坚定前行，实现中华民族伟大复兴的中国梦。"
+            </blockquote>
+            <div class="quote-author">— 中华民族的共同心声</div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 页脚 -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <h3>关于我们</h3>
+                    <p>本网站致力于展示中国的自然风光、文化遗产和现代成就，传递对伟大祖国的热爱之情。</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" style="color: var(--gold); margin-right: 10px; font-size: 1.2rem;"><i class="fab fa-weixin"></i></a>
+                        <a href="#" style="color: var(--gold); margin-right: 10px; font-size: 1.2rem;"><i class="fab fa-weibo"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem;"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
+                
                 <div class="footer-column">
-                    <h3>Quick Links</h3>
+                    <h3>快速链接</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#culture">中国文化</a></li>
+                        <li><a href="#scenery">锦绣山河</a></li>
+                        <li><a href="#achievements">辉煌成就</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-column">
-                    <h3>Our Programs</h3>
+                    <h3>联系我们</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市东城区</li>
+                        <li><i class="fas fa-phone"></i> +86 010-12345678</li>
+                        <li><i class="fas fa-envelope"></i> contact@lovechina.com</li>
                     </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
                 </div>
             </div>
+            
             <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
+                <p>© 2023 爱我中华主题网站 | 本网站仅供展示，图片来自Unsplash</p>
+                <p>中华人民共和国 | 社会主义核心价值观：富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
+    <!-- 滚动到顶部按钮 -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
+    <script>
+        // 移动菜单切换
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // 滚动到顶部按钮
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 滚动时的高亮效果
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
             
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                const inc = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
                 }
             });
-        }
-
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    document.querySelector('nav ul').classList.remove('active');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
                 }
+            });
+        });
+        
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', () => {
+            // 为所有fade-in元素添加可见类
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                fadeInObserver.observe(element);
+            });
+            
+            // 添加点击平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // 移动端点击后关闭菜单
+                        if (window.innerWidth <= 768) {
+                            mainNav.classList.remove('active');
+                        }
+                    }
+                });
             });
         });
     </script>
 </body>
-
 </html>
